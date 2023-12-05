@@ -50,7 +50,7 @@ class MyVector:
     #Overloading the + operator
     
     #classic method
-    def __add__(self, other):
+    #def __add__(self, other):
         if MyVector.get_type(self) != other.get_type():
             raise Exception("Cannot add vectors of different types")
         rez = []
@@ -59,14 +59,14 @@ class MyVector:
         return MyVector(self.__name_id, self.__key, self.__Type, rez)
     
     #numpy method
-    #def __add__(self, other):
+    def __add__(self, other):
         if MyVector.get_type(self) != other.get_type():
             raise Exception("Cannot add vectors of different types")
-        return MyVector(self.__name_id, self.__key, self.__Type, np.add(self.__val, other.__val))
+        return MyVector(self.__name_id, self.__key, self.__Type, (x for x in np.add(self.__val, other.__val)))
     #Overloading the += operator
     
     #classic method
-    def __iadd__(self, other):
+    #def __iadd__(self, other):
         if MyVector.get_type(self) != other.get_type():
             raise Exception("Cannot add vectors of different types")
         for i in range(len(self.__val)):
@@ -74,7 +74,7 @@ class MyVector:
         return self
     
     #numpy method
-    #def __iadd__(self, other):
+    def __iadd__(self, other):
         if MyVector.get_type(self) != other.get_type():
             raise Exception("Cannot add vectors of different types")
         self.__val = np.add(self.__val, other.__val)
@@ -85,25 +85,25 @@ class MyVector:
     
     #classic method
     #@Input: scalar
-    def __radd__(self, scalar):
+    #def __radd__(self, scalar):
         return MyVector(self.__name_id, self.__key, self.__Type, self.__val + scalar)
     
     #numpy method
     #@Input: scalar
-    #def __radd__(self, scalar):
+    def __radd__(self, scalar):
         return MyVector(self.__name_id, self.__key, self.__Type, np.add(self.__val, scalar))
     
     #Substract two vectors
     #Overloading the - operator
     
     #classic method
-    def __sub__(self, other):
+    #def __sub__(self, other):
         if MyVector.get_type(self) != other.get_type():
             raise Exception("Cannot substract vectors of different types")
         return MyVector(self.__name_id, self.__key, self.__Type, [self.__val[i] - other.__val[i] for i in range(len(self.__val))])
     
     #numpy method
-    #def __sub__(self, other):
+    def __sub__(self, other):
         if MyVector.get_type(self) != other.get_type():
             raise Exception("Cannot substract vectors of different types")
         return MyVector(self.__name_id, self.__key, self.__Type, np.subtract(self.__val, other.__val))
@@ -111,7 +111,7 @@ class MyVector:
     #Overloading the -= operator
     
     #classic method
-    def __isub__(self, other):
+    #def __isub__(self, other):
         if MyVector.get_type(self) != other.get_type():
             raise Exception("Cannot substract vectors of different types")
         for i in range (len(self.__val)):
@@ -119,7 +119,7 @@ class MyVector:
         return self
     
     #numpy method
-    #def __isub__(self, other):
+    def __isub__(self, other):
         if MyVector.get_type(self) != other.get_type():
             raise Exception("Cannot substract vectors of different types")
         self.__val = np.subtract(self.__val, other.__val)
@@ -129,7 +129,7 @@ class MyVector:
     #Overloading the * operator
     
     #classic method
-    def __mul__(self, other):
+    #def __mul__(self, other):
         if MyVector.get_type(self) != other.get_type():
             raise Exception("Cannot multiply vectors of different types")
         number = 0
@@ -138,7 +138,7 @@ class MyVector:
         return number
     
     #numpy method
-    #def __mul__(self, other):
+    def __mul__(self, other):
         if MyVector.get_type(self) != other.get_type():
             raise Exception("Cannot multiply vectors of different types")
         return MyVector(self.__name_id, self.__key, self.__Type, np.multiply(self.__val, other.__val))
@@ -147,7 +147,7 @@ class MyVector:
     #Overloading the *= operator
     
     #classic method
-    def __imul__(self, other):
+    #def __imul__(self, other):
         if MyVector.get_type(self) != other.get_type():
             raise Exception("Cannot multiply vectors of different types")
         number = 0
@@ -156,7 +156,7 @@ class MyVector:
         return number
     
     #numpy method
-    #def __imul__(self, other):
+    def __imul__(self, other):
         if MyVector.get_type(self) != other.get_type():
             raise Exception("Cannot multiply vectors of different types")
         self.__val = np.multiply(self.__val, other.__val)
@@ -214,4 +214,3 @@ class MyVector:
     def __repr__(self):
         return str(self)
     #End Of Output Methods
-    

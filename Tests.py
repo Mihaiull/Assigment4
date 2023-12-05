@@ -151,7 +151,7 @@ def test_add_vector():
     repo=VectorRepository()
     v1 = MyVector("v1", "b", 1, [5, 10, 15, 24])
     repo.add_vector(v1)
-    assert repo.get_vectors() == [v1], Fore.RED+"Add vector 1 failed"+Style.RESET_ALL
+    assert (repo.get_vectors() == [v1]), Fore.RED+"Add vector 1 failed"+Style.RESET_ALL
     print(Fore.GREEN+ "Add vector 1 passed" + Style.RESET_ALL)
     sleep(0.01)
     v2 = MyVector("v2", "b", 1, [20, -3, 10, 0])
