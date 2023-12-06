@@ -51,7 +51,6 @@ def test_substraction():
 def test_multiply():
     v1 = MyVector("v1", "b", 1, [5, 10, 15, 24])
     v2 = MyVector("v2", "g", 1, [4, 9, 15, 19])
-    print (v1*v2)
     assert v1*v2 == 5*4 + 10*9 + 15*15 + 24*19, Fore.RED+"Multiply vectors 1 failed"+Style.RESET_ALL
     print(Fore.GREEN+"Multiply vectors 1 passed" + Style.RESET_ALL)
     sleep(0.01)
@@ -365,7 +364,6 @@ def test_create_sum_all():
     repo.add_vector(v1)
     repo.add_vector(v2)
     repo.create_sum_all()
-    print(repo.get_vector(1).get_val())
     assert repo.get_vector(2).get_val() == [9, 13, 16, 32], Fore.RED+"Create sum all 3 failed"+Style.RESET_ALL
     print(Fore.GREEN+ "Create sum all 3 passed" + Style.RESET_ALL)
     sleep(0.01)
@@ -378,7 +376,7 @@ def test_all():
     for characters in x:
         print(characters, end = '')
         sleep(0.05)
-    #try:
+    try:
         test_add()
         test_substraction()
         test_multiply()
@@ -397,5 +395,9 @@ def test_all():
         test_delete_max_equal_to()
         test_update_color_by_name_id()
         test_create_sum_all()
-
-test_all()
+    except Exception as ex:
+        print(Fore.RED)
+        print(ex)
+        print(Style.RESET_ALL)
+    sleep(1)
+    os.system("cls||clear")

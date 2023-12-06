@@ -144,9 +144,9 @@ class MyVector:
             raise Exception("Cannot multiply vectors of different types")
         multi = np.multiply(self.__val, other.__val)
         suma = 0
-        for i in range(len(self.__val)):
-            suma += self.__val[i]
-        return multi
+        for i in range(len(multi)):
+            suma += multi[i]
+        return suma
     
     
     #Overloading the *= operator
@@ -165,10 +165,9 @@ class MyVector:
         if MyVector.get_type(self) != other.get_type():
             raise Exception("Cannot multiply vectors of different types")
         multi = np.multiply(self.__val, other.__val)
-        self.__val = list(multi)
         suma = 0
-        for i in range(len(self.__val)):
-            suma += self.__val[i]
+        for elem in list(multi):
+            suma+=elem
         return suma
     
     #Sum of elements in a vector:
