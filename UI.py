@@ -23,8 +23,10 @@ def print_menu():
     
 V = VectorRepository()
 #globals so they don't get reset when the fucncton gets recalled after an error
-V.add_vector(MyVector("v1", "r", 1, [1,2,3,4,5]))
+V.add_vector(MyVector("v1", "r", 1, [1, 2, 3, 4, 5]))
 V.add_vector(MyVector("v2", "g", 2, [12 , 23, 34, 45, 56]))
+V.add_vector(MyVector("v3", "b", 3, [7, 3, 5 , 1, 4]))
+V.add_vector(MyVector("v4", "c", 4, [1, 2, 3, 4, 5]))
 
 def UI():
     try:
