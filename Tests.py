@@ -399,5 +399,10 @@ def test_all():
         print(Fore.RED)
         print(ex)
         print(Style.RESET_ALL)
-    sleep(1)
+    sleep(0.01)
+    x = Fore.LIGHTGREEN_EX + "All tests passed!" + Style.RESET_ALL
+    for characters in x:
+        print(characters, end = '')
+        sleep(0.02)
+    sleep(1.5)
     os.system("cls||clear")
