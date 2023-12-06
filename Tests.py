@@ -364,7 +364,6 @@ def test_create_sum_all():
     repo.add_vector(v1)
     repo.add_vector(v2)
     repo.create_sum_all()
-    print(repo.get_vector(1).get_val())
     assert repo.get_vector(2).get_val() == [9, 13, 16, 32], Fore.RED+"Create sum all 3 failed"+Style.RESET_ALL
     print(Fore.GREEN+ "Create sum all 3 passed" + Style.RESET_ALL)
     sleep(0.01)
