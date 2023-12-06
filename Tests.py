@@ -406,3 +406,8 @@ def test_all():
         sleep(0.02)
     sleep(1.5)
     os.system("cls||clear")
+    
+if __name__ == "__main__":
+    test_all()
+    sleep(1)
+    os.system("cls||clear")
