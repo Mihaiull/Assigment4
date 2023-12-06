@@ -3,7 +3,7 @@ import numpy as np
 
 dictionary = {"r": "red", "g": "green", "b": "blue", "y": "yellow", "m": "magenta", "c": "cyan", "w": "white", "k": "black"}
 #dictionary for coloring the output according to the color of the vector:
-dictionary2 = {"r": "RED", "g": "GREEN", "b":"BLUE", "Y": "YELLOW", "m": "MAGENTA", "c": "CYAN", "w": "WHITE", "k": "BLACK"}
+dictionary2 = {"r": Fore.RED, "g": Fore.GREEN, "b":Fore.BLUE, "Y": Fore.YELLOW, "m": Fore.MAGENTA, "c": Fore.CYAN, "w": Fore.WHITE, "k": Fore.BLACK}
 class MyVector:
     #Constructor
     def __init__(self, name_id, key, type = 1, val = []):
@@ -208,7 +208,7 @@ class MyVector:
     
     #Output Methods   
     def __str__(self):
-        return "Name: " + Fore.LIGHTCYAN_EX + self.__name_id + Style.RESET_ALL + ", Color: "+ self.__color + ", Type: " + Fore.BLUE + str(self.__Type) + Style.RESET_ALL + ", Value: " + Fore.LIGHTMAGENTA_EX + str(self.__val) + Style.RESET_ALL
+        return "Name: " + Fore.LIGHTCYAN_EX + self.__name_id + Style.RESET_ALL + ", Color: "+ dictionary2[self.__key] + self.__color + Style.RESET_ALL + ", Type: " + Fore.BLUE + str(self.__Type) + Style.RESET_ALL + ", Value: " + Fore.LIGHTMAGENTA_EX + str(self.__val) + Style.RESET_ALL
     
     
     def __repr__(self):
