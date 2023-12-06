@@ -1,3 +1,4 @@
+from pickle import INT
 from colorama import Fore, Style
 import numpy as np
 
@@ -32,7 +33,7 @@ class MyVector:
         self.__Type = type
         
     def get_val(self):
-        return self.__val
+        return list(self.__val)
     def set_val(self, val):
         self.__val = val
         
@@ -141,7 +142,11 @@ class MyVector:
     def __mul__(self, other):
         if MyVector.get_type(self) != other.get_type():
             raise Exception("Cannot multiply vectors of different types")
-        return MyVector(self.__name_id, self.__key, self.__Type, np.multiply(self.__val, other.__val))
+        multi = np.multiply(self.__val, other.__val)
+        suma = 0
+        for i in range(len(self.__val)):
+            suma += self.__val[i]
+        return multi
     
     
     #Overloading the *= operator
@@ -159,8 +164,12 @@ class MyVector:
     def __imul__(self, other):
         if MyVector.get_type(self) != other.get_type():
             raise Exception("Cannot multiply vectors of different types")
-        self.__val = np.multiply(self.__val, other.__val)
-        return self
+        multi = np.multiply(self.__val, other.__val)
+        self.__val = list(multi)
+        suma = 0
+        for i in range(len(self.__val)):
+            suma += self.__val[i]
+        return suma
     
     #Sum of elements in a vector:
     def sum(self):
@@ -201,9 +210,12 @@ class MyVector:
     #End Of Operations
     
     def __eq__(self, other):
-        if MyVector.get_type(self) != other.get_type():
-            raise Exception("Cannot compare vectors of different types")
-        return self.__val == other.__val
+        #if MyVector.get_type(self) != other.get_type(self):
+            #raise Exception("Cannot compare vectors of different types")
+        if type(other) == int:
+            return self.get_val() == other
+        elif type(other) == MyVector:
+            return self.get_val() == other.get_val()
     
     
     #Output Methods   
