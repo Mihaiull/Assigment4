@@ -14,7 +14,6 @@ class MyVector:
         self.__key = key
     #End Of Constructor
     
-    
     #Getters Setters
     
     def get_name_id(self):
@@ -62,7 +61,8 @@ class MyVector:
     def __add__(self, other):
         if MyVector.get_type(self) != other.get_type():
             raise Exception("Cannot add vectors of different types")
-        return MyVector(self.__name_id, self.__key, self.__Type, (x for x in np.add(self.__val, other.__val)))
+        list = [np.add(self.__val[i], other.val[i]) for i in range(len(self.__val))]
+        return MyVector(self.__name_id, self.__key, self.__Type,)
     #Overloading the += operator
     
     #classic method
